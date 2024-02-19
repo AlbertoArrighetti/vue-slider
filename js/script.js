@@ -40,6 +40,20 @@ createApp({
         }
     },
     methods: {
+        prevSlide(){
+            this.activeSlideIndex--;
+            // se va oltre lo zero 
+            if(this.activeSlideIndex < 0){
+                this.activeSlideIndex = this.slides.length - 1;
+            }
+        },
+        nextSlide(){
+            this.activeSlideIndex++;
+            // se va oltre l'ultima slide 
+            if(this.activeSlideIndex >= this.slides.length){
+                this.activeSlideIndex = 0;
+            }
+        },
         
     }
 }).mount('#app');
