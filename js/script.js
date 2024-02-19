@@ -59,7 +59,7 @@ createApp({
         },
         
         timer() {
-            setInterval(() => {
+            this.autoPlay = setInterval(() => {
                 this.activeSlideIndex++;  
                 
                 if (this.activeSlideIndex >= this.slides.length) {
@@ -67,6 +67,10 @@ createApp({
                 }
             }, 3000)
         },
+        
+        stopTimer(){
+            clearInterval(this.autoPlay)
+        }
     },
 
     // con mounted faccio partire l'autoplay all'avvio della pagina 
