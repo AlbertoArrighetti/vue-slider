@@ -60,11 +60,7 @@ createApp({
         
         timer() {
             this.autoPlay = setInterval(() => {
-                this.activeSlideIndex++;  
-                
-                if (this.activeSlideIndex >= this.slides.length) {
-                    this.activeSlideIndex = 0
-                }
+                this.nextSlide();
             }, 3000)
         },
         
