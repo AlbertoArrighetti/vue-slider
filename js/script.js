@@ -60,5 +60,14 @@ createApp({
             this.activeSlideIndex = index;
         },
         
+        timer() {
+            setInterval(() => {
+                this.activeSlideIndex++;  
+                
+                if (this.activeSlideIndex >= this.slides.length) {
+                    this.activeSlideIndex = 0
+                }
+            }, 3000)
+        },
     }
 }).mount('#app');
