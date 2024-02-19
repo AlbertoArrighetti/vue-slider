@@ -28,8 +28,8 @@
 
                     <!-- immagini -->
                     <img 
-                    :src="currentImage.image" 
-                    :alt="'slide ' + (index + 1)" 
+                        :src="currentImage.image" 
+                        :alt="'slide ' + (index + 1)" 
                     />
 
 
@@ -45,36 +45,27 @@
                     </div>
                 </div>
 
-
-
-
-
-
                 <div class="thumbs">
                     
                     <!-- frecce -->
                     <div class="prev" @click="prevSlide()"></div>
                     <div class="next" @click="nextSlide()"></div>
                     
-                    
-                    
-                    
                     <!-- thumbnails  -->
-                    <div class="thumb active">
-                        <img src="img/01.webp" alt="Svezia" />
+                    <div class="thumb"
+                        v-for="(image, index) in slides"
+                        :class="index == activeSlideIndex ? 'active' : '' "
+                    >
+
+                    <!-- gestione immagini nelle thumbnails con operatori ternari  -->
+                        <img 
+                            :src="image.image" 
+                            :alt="image.title" 
+                            @click="changeSlide(index)"
+                        />
                     </div>
-                    <div class="thumb">
-                        <img src="img/02.webp" alt="Ratchet & Clank" />
-                    </div>
-                    <div class="thumb">
-                        <img src="img/03.webp" alt="Fortnite" />
-                    </div>
-                    <div class="thumb">
-                        <img src="img/04.webp" alt="Stray" />
-                    </div>
-                    <div class="thumb">
-                        <img src="img/05.webp" alt="Avengers" />
-                    </div>
+
+
                 </div>
 
             </div>

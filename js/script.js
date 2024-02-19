@@ -54,6 +54,11 @@ createApp({
                 this.activeSlideIndex = 0;
             }
         },
+
+        // per le thumbnails
+        changeSlide(index){
+            this.activeSlideIndex = index;
+        },
         
     }
 }).mount('#app');
