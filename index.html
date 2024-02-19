@@ -6,29 +6,53 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Slider</title>
+
+    <!-- link a css -->
     <link rel="stylesheet" href="./css/style.css" />
 </head>
 
 <body>
+    <!-- link a VUE  -->
+    <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
+
 
     <div id="app">
 
         <div class="container">
             <div class="slider-wrapper" tabindex="0">
 
-                <div class="item">
-                    <img src="img/01.webp" alt="Spiderman" />
+                <div class="item"
+                    v-for="(currentImage, index) in slides" 
+                    v-show="index == activeSlideIndex"
+                >
+
+                    <!-- immagini -->
+                    <img 
+                    :src="currentImage.image" 
+                    :alt="'slide ' + (index + 1)" 
+                    />
+
+
                     <div class="text">
-                        <h3>Spiderman</h3>
+                        <!-- titolo -->
+                        <h3>
+                            {{currentImage.title}}
+                        </h3>
+                        <!-- testo -->
                         <p>
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit
-                            tempore aliquid deleniti aut
-                            veniam inventore eligendi ex ad ullam, cumque provident totam omnis, magnam dolores dolorum
-                            corporis.
+                            {{currentImage.text}}
                         </p>
+                    
+                    
                     </div>
                 </div>
 
+
+
+
+
+
+                <!-- thumbnails  -->
                 <div class="thumbs">
                     <div class="prev"></div>
                     <div class="next"></div>
@@ -54,7 +78,7 @@
 
     </div>
 
-    <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
+    
     <script src="./js/script.js"></script>
 </body>
 
